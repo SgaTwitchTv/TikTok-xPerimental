@@ -1,0 +1,27 @@
+<Window x:Class="AutoClicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Autoclicker" Width="460" Height="440" MinWidth="410" MinHeight="440"
+        Background="#F3F5FA" FontFamily="Segoe UI" WindowStartupLocation="CenterScreen">
+    <Grid Margin="28">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/><RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Autoclicker" FontSize="28" FontWeight="SemiBold" Foreground="#18233D"/>
+        <TextBlock Grid.Row="1" Margin="0,8,0,20" Text="Lewy przycisk • aktualna pozycja kursora" Foreground="#526079"/>
+        <StackPanel Grid.Row="2">
+            <TextBlock x:Name="RateLabel" FontSize="19" FontWeight="SemiBold"/>
+            <Slider x:Name="RateSlider" Minimum="2" Maximum="100" Value="10" TickFrequency="1"
+                    IsSnapToTickEnabled="True" Margin="0,12,0,4" ValueChanged="RateChanged"
+                    AutomationProperties.Name="Tempo w kliknięciach na sekundę"/>
+            <DockPanel><TextBlock Text="2 klik./s"/><TextBlock Text="100 klik./s" HorizontalAlignment="Right"/></DockPanel>
+        </StackPanel>
+        <Button Grid.Row="3" x:Name="ToggleButton" Content="Start (F6)" Click="ToggleClicked"
+                Margin="0,22,0,12" Padding="12" FontSize="18" Background="#245DD8" Foreground="White"/>
+        <TextBlock Grid.Row="4" x:Name="StatusLabel" Text="Zatrzymany" TextWrapping="Wrap" Foreground="#33415B"/>
+        <TextBlock Grid.Row="5" Margin="0,14,0,0" TextWrapping="Wrap" Foreground="#526079" FontSize="12"
+                   Text="F6 uruchamia i zatrzymuje także poza tym oknem. Losowe odstępy: 70–130% okresu. Tempo jest orientacyjne."/>
+    </Grid>
+</Window>
